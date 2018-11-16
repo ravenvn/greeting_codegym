@@ -15,6 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/users', 'UserController@list');
+
+Route::get('/user/{id}', function ($id) {
+    echo $id;
+})->where('id', '\d+');
+// Route::get('/user/{name:[A-Za-z]+}', function ($name) {
+//     echo $name;
+// });
+
 Route::get('/greeting/{name?}', function ($name = null) {
     if ($name) {
         echo 'Hello ' . $name . '!';
@@ -26,8 +35,8 @@ Route::get('/greeting/{name?}', function ($name = null) {
 Route::get('/login', function () {
     return view('login');
 });
-
-Route::post('/login', function (Illuminate\Http\Request $request) {
+Route::post('/login/{name}', function (Illuminate\Http\Request $request, $name) {
+    echo $name;
     if ($request->username == 'admin'
         && $request->password == 'admin') {
         return view('welcome_admin');
@@ -35,3 +44,11 @@ Route::post('/login', function (Illuminate\Http\Request $request) {
 
     return view('login_error');
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/translation/{search}/{age?}', 'DictionaryController@translation')->name('Vinh');
+    Route::get('/translation2/{search}/{age?}', 'DictionaryController@translation')->name('Vinh');
+});
+
+
+

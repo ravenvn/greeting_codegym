@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+º
     <h1>Đăng nhập</h1>
     <form action="/login" method="POST">
         <p>@csrf</p>
