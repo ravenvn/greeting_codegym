@@ -50,5 +50,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/translation2/{search}/{age?}', 'DictionaryController@translation')->name('Vinh');
 });
 
-
+Route::get('/dictionaries/new', 'DictionaryController@new');
+Route::post('/dictionaries/create', 'DictionaryController@create');
 
