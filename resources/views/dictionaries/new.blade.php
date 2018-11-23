@@ -1,3 +1,4 @@
+<p>{{ session('ten') }}</p>
 @if (count($errors) > 0)
  <div class = "alert alert-danger" style="color:red;">
     <ul>
